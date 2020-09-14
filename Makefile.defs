@@ -124,6 +124,8 @@ endif
 GO_BUILD = CGO_ENABLED=0 $(GO) build
 GO_BUILD_WITH_CGO = CGO_ENABLED=1 $(GO) build
 
+RACE=1
+BASE_IMAGE = "quay.io/cilium/cilium-runtime:2020-09-10@sha256:fa45d7a600a9b4baeee64f9c017898fe0eba5425ffac2ba5b3bafacc319544fa"
 ifneq ($(RACE),)
     GO_BUILD_FLAGS += -race
     GO_TEST_FLAGS += -race
@@ -135,6 +137,7 @@ else
     GOTEST_COVER_OPTS += -covermode=count
 endif
 
+LOCKDEBUG=1
 ifneq ($(LOCKDEBUG),)
     GO_TAGS_FLAGS += lockdebug
 endif
