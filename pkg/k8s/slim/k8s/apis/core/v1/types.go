@@ -248,6 +248,11 @@ type PodStatus struct {
 	// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
 	// +optional
 	ContainerStatuses []ContainerStatus `json:"containerStatuses,omitempty" protobuf:"bytes,8,rep,name=containerStatuses"`
+
+	// Phase holds the high-level summary of where the Pod is in its lifecycle.
+	// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase.
+	// +optional
+	Phase string `json:"phase,omitempty" protobuf:"bytes,9,opt,name=phase"`
 }
 
 // +genclient

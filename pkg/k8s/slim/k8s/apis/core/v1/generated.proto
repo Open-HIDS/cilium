@@ -465,6 +465,11 @@ message PodStatus {
   // More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
   // +optional
   repeated ContainerStatus containerStatuses = 8;
+
+  // Phase holds the high-level summary of where the Pod is in its lifecycle.
+  // More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase.
+  // +optional
+  optional string phase = 9;
 }
 
 // Service is a named abstraction of software service (for example, mysql) consisting of local port

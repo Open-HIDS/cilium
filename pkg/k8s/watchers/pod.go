@@ -217,6 +217,10 @@ func (k *K8sWatcher) updateK8sPodV1(oldK8sPod, newK8sPod *slim_corev1.Pod) error
 		return nil
 	}
 
+	if newK8sPod.Status.Phase == "Succeeded" {
+		return k.deleteK8sPodV1(newK8sPod)
+	}
+
 	// The pod IP can never change, it can only switch from unassigned to
 	// assigned
 	// Process IP updates

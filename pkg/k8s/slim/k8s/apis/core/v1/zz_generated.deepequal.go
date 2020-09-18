@@ -771,6 +771,10 @@ func (in *PodStatus) DeepEqual(other *PodStatus) bool {
 		}
 	}
 
+	if in.Phase != other.Phase {
+		return false
+	}
+
 	return true
 }
 
