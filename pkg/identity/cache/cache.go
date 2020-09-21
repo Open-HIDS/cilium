@@ -211,7 +211,7 @@ func (m *CachingIdentityAllocator) LookupIdentity(ctx context.Context, lbls labe
 		return identity
 	}
 
-	if m.IdentityAllocator == nil {
+	if !identity.RequiresGlobalIdentity(lbls) || m.IdentityAllocator == nil {
 		return nil
 	}
 
